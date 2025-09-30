@@ -236,9 +236,10 @@ main .hero {
 }
 
 .nav a.active {
-  background-color: #f1f1fd;
+  background-color: #fcfcff;
   padding: 8px 16px;
   border-radius: 32px;
+  border: 1px solid #efefff;
 }
 
 .item-bar .icons {
@@ -250,8 +251,8 @@ main .hero {
 }
 
 .icons .icon {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   background-color: #fcfcff;
   border: 1px solid #efefff;
@@ -261,15 +262,20 @@ main .hero {
   text-align: center;
 }
 
+.icons .icon.active {
+  border: 1px solid #ff6a95;
+}
+
 .icon img {
-  width: 24px;
+  width: 29px;
 }
 
 .gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   width: 100%;
-  padding: 32px 0;
+  padding: 47px 0;
+  gap: 36px;
 }
 
 .gallery .card {
@@ -277,17 +283,84 @@ main .hero {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 22px;
 }
 
 .card .image-placeholder {
+  position: relative;
   width: 100%;
-  background-color: #ccc;
   overflow: hidden;
 }
 
+.image-placeholder img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.image-placeholder .icon {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 65px;
+  height: 65px;
+  background-color: white;
+  border-radius: 50%;
+  top: 21px;
+  left: 22px;
+}
+
+.image-placeholder .icon img {
+  width: 32px;
+}
+
 .titles {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 16px;
+}
+
+.titles .left-side {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.left-side img {
+  background-color: #ccc;
+  text-align: center;
+  width: 42px;
+  border-radius: 50%;
+}
+
+.left-side p {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.left-side p > span {
+  font-weight: 700;
+}
+
+.titles .right-side {
+  display: flex;
+  align-items: center;
+  gap: 23px;
+}
+
+.right-side .counters {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.counters i {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.counters p {
+  font-size: 14px;
+  font-weight: 600;
 }
