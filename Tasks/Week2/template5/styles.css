@@ -1,0 +1,183 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "poppins", sans-serif;
+}
+
+main {
+  background-color: #f7f6ff;
+  padding: 188px 541px;
+}
+
+main .card-container {
+  width: 518px;
+  background-color: white;
+  box-shadow: 0 25px 55px -15px #a19ada75;
+  border-radius: 25px;
+}
+
+.card-container .top-section {
+  padding: 60px 60px 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 22px;
+}
+
+.card-container .top-section .heading-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.heading-section p {
+  font-family: "Merriweather", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #16182e;
+}
+
+.heading-section i {
+  font-size: 22px;
+}
+
+.top-section > p {
+  font-family: "Mulish", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.card-container hr {
+  border: 1px solid #e9e7f9;
+}
+
+.top-section .progress-section {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.progress-section p {
+  font-family: "Merriweather", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.progress-section .progress-container {
+  position: relative;
+  height: 10px;
+  background-color: #f7f6ff;
+  border-radius: 30px;
+  width: -webkit-fill-available;
+}
+
+.progress-container .progress-value {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 10px;
+  background-color: #16182e;
+  border-radius: 30px;
+}
+
+.card-container .checks-section {
+  padding: 45px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 25px;
+}
+
+.checks-section .checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox-wrapper .custom-checkbox {
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  border: 3px solid #dfddf1;
+}
+
+.custom-checkbox i {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked + .custom-checkbox {
+  background-color: #16182e;
+  border: 3px solid #dfddf1;
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked + .custom-checkbox::after {
+  opacity: 1;
+}
+
+.checkbox-wrapper .label-text {
+  font-family: "Mulish", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.card-container .skip-section {
+  padding: 0 60px 42px;
+}
+
+.skip-section a {
+  text-decoration: none;
+  font-family: "Mulish", sans-serif;
+  color: #16182e;
+  font-size: 18px;
+  font-weight: 600;
+  opacity: 0.7;
+}
+
+main .button-section {
+  margin-top: 20px;
+  width: 518px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button-section button {
+  height: 61px;
+  background-color: #16182e;
+  color: #ffffff;
+  border-radius: 46px;
+  padding: 0 15px;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: "Mulish", sans-serif;
+}
+
+.button-section button span {
+  font-family: "Mulish", sans-serif;
+  background-color: white;
+  color: #000000;
+  padding: 2px 8px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
