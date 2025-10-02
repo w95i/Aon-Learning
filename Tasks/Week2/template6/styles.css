@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "poppins", sans-serif;
+}
+
+main {
+  background-color: #dae0f3;
+  padding: 210px 578px;
+}
+
+.crypto-container {
+  position: relative;
+  width: 443px;
+  height: 781px;
+}
+
+.crypto-container .crypto-shadow {
+  width: 421px;
+  height: 735px;
+  background-color: #ccd5f9;
+  border-radius: 24px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.crypto-container .crypto-list {
+  position: absolute;
+  width: 419px;
+  height: 757px;
+  background-color: white;
+  border-radius: 24px;
+  box-shadow: 0 13px 30px 0 #afbbea66;
+  top: 24px;
+  left: 24px;
+  z-index: 5;
+}
+
+.crypto-list .taps {
+  padding: 48px 48px 24px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.taps button {
+  height: 39px;
+  padding: 0 41px;
+  background-color: transparent;
+  border: 1px solid #dde1f4;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "Roboto", sans-serif;
+}
+
+.taps button.active {
+  background-color: #4a6fff;
+  color: white;
+  padding: 0 40px;
+}
+
+.crypto-list .search-bar {
+  position: relative;
+  padding: 0 48px 36px;
+}
+
+.search-bar input {
+  font-family: "Roboto", sans-serif;
+  height: 58px;
+  width: 100%;
+  padding: 19px 16px;
+  border-radius: 4px;
+  border: 1px solid #dde1f4;
+  background-color: #f2f5ff;
+  text-indent: 32px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.search-bar input::placeholder {
+  color: #0f1b4a;
+  opacity: 0.6;
+}
+
+.search-bar i {
+  position: absolute;
+  top: 16px;
+  left: 65px;
+  font-size: 24px;
+}
+
+.crypto-list .coins {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1px;
+  padding: 0 48px 40px;
+}
+
+.coins .coin {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+}
+
+.coins .coin.active {
+  background-color: #f2f5ff;
+}
+
+.coins .coin .info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.coin .info img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.coin .info p {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #0f1b4a;
+}
