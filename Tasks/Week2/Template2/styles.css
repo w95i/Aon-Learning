@@ -1,0 +1,175 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+main {
+  background-color: #e6eaf8;
+  min-height: 100vh;
+}
+
+.card-container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 173px 194px;
+}
+
+.card-container .card-wrapper {
+  width: 100%;
+  height: 830px;
+  background-color: white;
+  border-radius: 16px;
+  padding: 100px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 70px;
+}
+
+.card-wrapper .heading-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.heading-section h1 {
+  font-family: "Merriweather", serif;
+  font-size: 32px;
+  font-weight: 900;
+}
+
+.heading-section .bar-section {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bar-section .search {
+  position: relative;
+}
+
+.bar-section .search input {
+  height: 54px;
+  width: 300px;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 4px;
+  padding: 20px;
+  text-indent: 25px;
+  border: 1px solid #bfc8e5;
+}
+
+.bar-section .search span {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+
+.search span i {
+  font-size: 22px;
+}
+
+.bar-section .links {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.links a {
+  text-decoration: none;
+  color: #151b32;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.links a.active {
+  background-color: #849fff;
+  border-radius: 8px;
+  color: white;
+}
+
+.card-wrapper .people-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.people-section .personal-card {
+  width: 100%;
+  background-color: #fbfcff;
+  border-radius: 16px;
+  height: 208px;
+  display: flex;
+  align-items: flex-start;
+  gap: 0 16px;
+  padding: 24px;
+}
+
+.personal-card .image-section {
+  width: 97px;
+  height: 97px;
+  border-radius: 50%;
+  background-color: #e6eaf8;
+}
+
+.personal-card .image-section img {
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.personal-card .information-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 16px;
+  padding-top: 20px;
+}
+
+.information-section .titles {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.information-section .titles h3 {
+  font-family: "Merriweather", serif;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.information-section .titles p {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.information-section .skills {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.information-section .skills p {
+  height: 22px;
+  padding: 0 8px;
+  border: 1px solid #bfc8e5;
+  border-radius: 10px;
+  background-color: #ffffff;
+  color: #516fd4;
+  font-size: 12px;
+  font-weight: 400;
+}

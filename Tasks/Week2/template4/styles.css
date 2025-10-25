@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+main {
+  background-color: #161c27;
+  min-height: 100vh;
+  padding: 296px 292px;
+}
+
+.card-container {
+  border: 12px solid #273245;
+  background-color: #111620;
+  border-radius: 20px;
+  padding: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 25px;
+}
+
+.card-container p {
+  font-size: 16px;
+  font-weight: 400;
+  color: #7a90bb;
+}
+
+.card-container h1 {
+  font-size: 26px;
+  font-weight: 700;
+  font-family: "Merriweather", sans-serif;
+  color: #9ab7ef;
+}
+
+.card-container .search-bar {
+  position: relative;
+  width: 100%;
+}
+
+.search-bar input {
+  height: 62px;
+  width: 100%;
+  background-color: #161c27;
+  border: 1px solid #273245;
+  border-radius: 5px;
+  color: #7a90bb;
+  padding: 30px;
+  text-indent: 30px;
+}
+
+.search-bar input::placeholder {
+  color: #7a90bb;
+}
+
+.search-bar i {
+  position: absolute;
+  top: 18px;
+  left: 25px;
+  font-size: 24px;
+  color: #7a90bb;
+}
+
+.card-container .sections {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  height: fit-content;
+  gap: 10px;
+}
+
+.sections p {
+  padding: 8px 15px;
+  background-color: #142037;
+  color: #7a90bb;
+  border-radius: 25px;
+}
+
+.sections p.active {
+  background-color: #92b6ff;
+  color: #111620;
+}
