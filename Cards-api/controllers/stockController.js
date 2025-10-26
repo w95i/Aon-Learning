@@ -1,14 +1,25 @@
 const db = require("../db");
 
-
 const getStockAvailable = async () => {
-    const { rows } = await db.query("SELECT COUNT(*) AS available_stock FROM stock WHERE state = 'ready'");
-    if (rows.length === 0) {
-        return [];
-    }
-    return rows.map(row => ({
-        planId: row.plan_id,
-        planName: row.plan_name,
-        available: parseInt(row.available_stock, 10)
-    }));
-}
+  const { rows } = await db.query(`
+    SELECT 
+      s.plan_id AS "planId",
+      p.name AS "planName",
+      COUNT(*) AS "available"
+    FROM stock s
+    JOIN plan p ON s.plan_id = p.id
+    WHERE s.state = 'ready'
+    GROUP BY s.plan_id, p.name
+    ORDER BY s.plan_id;
+  `);
+
+  return rows.map((row) => ({
+    planId: row.planId,
+    planName: row.planName,
+    available: parseInt(row.available, 10),
+  }));
+};
+
+module.exports = {
+  getStockAvailable,
+};
