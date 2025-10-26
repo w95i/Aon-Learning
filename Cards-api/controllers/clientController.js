@@ -21,7 +21,9 @@ const register = async (body) => {
 };
 
 const login = async (phone, password) => {
-  const result = await db.query(`select * from client where phone = '${phone}'`);
+  const result = await db.query(
+    `select * from client where phone = '${phone}'`
+  );
   if (result.rowCount !== 1) {
     return { success: false, message: "user not found!" };
   }
@@ -41,11 +43,26 @@ const login = async (phone, password) => {
     },
     process.env.SECRET_KEY
   );
-  
+
   return { success: true, token: token };
+};
+
+const getClientBalance = async (clientId) => {
+  if (!clientId) {
+    return { message: "clientId is required" };
+  }
+
+  const { rows: user } = await db.query(
+    `SELECT id, name, balance FROM client WHERE id = ${clientId}`
+  );
+  if (user.length === 0) {
+    return { message: "Client not found" };
+  }
+  return {  id: user[0].id, name: user[0].name, balance: user[0].balance  };
 };
 
 module.exports = {
   register,
   login,
+  getClientBalance,
 };

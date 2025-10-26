@@ -1,7 +1,7 @@
 const express = require("express");
 
 const app = express();
-const PORT = 3000;
+const PORT = 3001;
 const db = require("./db");
 const plansRoutes = require("./routes/plan.route");
 const clientsRoutes = require("./routes/client.route");
@@ -16,7 +16,7 @@ app.use("/plans", plansRoutes);
 app.use("/client", clientsRoutes);
 
 app.listen(PORT, () => {
-  console.log("http://localhost:3000");
+  console.log("http://localhost:3001");
 });
 
 process.on("SIGINT", async () => {
