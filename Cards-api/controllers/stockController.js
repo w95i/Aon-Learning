@@ -5,7 +5,7 @@ const getStockAvailable = async () => {
     SELECT 
       s.plan_id AS "planId",
       p.name AS "planName",
-      COUNT(*) AS "available"
+      CAST(COUNT(*) AS INTEGER) AS "available"
     FROM stock s
     JOIN plan p ON s.plan_id = p.id
     WHERE s.state = 'ready'
@@ -13,11 +13,7 @@ const getStockAvailable = async () => {
     ORDER BY s.plan_id;
   `);
 
-  return rows.map((row) => ({
-    planId: row.planId,
-    planName: row.planName,
-    available: parseInt(row.available, 10),
-  }));
+  return rows;
 };
 
 module.exports = {
