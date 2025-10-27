@@ -5,8 +5,22 @@ const getPlans = async () => {
   return rows;
 };
 
-const getPlanById = async (palnId) => {
-  const { rows } = await db.query(`SELECT * FROM plan WHERE id = ${palnId}`);
+const getPlanAvailable = async () => {
+  const { rows } = await db.query(
+    `SELECT p.*
+      FROM plan p
+      JOIN stock s ON s.plan_id = p.id
+      WHERE s.state = 'ready'
+      GROUP BY p.id`
+  );
+  if (rows.length === 0) {
+    return { message: "No available plans" };
+  }
+  return rows;
+};
+
+const getPlanById = async (planId) => {
+  const { rows } = await db.query(`SELECT * FROM plan WHERE id = ${planId}`);
   return rows[0];
 };
 
@@ -56,6 +70,7 @@ const purchase = async (planId, clientId) => {
 
 module.exports = {
   getPlans,
+  getPlanAvailable,
   getPlanById,
   purchase,
 };

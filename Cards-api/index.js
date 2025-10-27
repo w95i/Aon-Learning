@@ -26,21 +26,6 @@ process.on("SIGINT", async () => {
   process.exit(0);
 });
 
-// 1️⃣ GET /client/:id/balance
-//    ➤ Purpose: Return the balance of a specific client.
-//    ➤ Response: { id, name, balance }
-//
-// 2️⃣ GET /stock/available
-//    ➤ Purpose: Return the number of “ready” cards for each plan.
-//    ➤ Response Example:
-//        [
-//          { planId: 1, planName: "Zain 5K", available: 25 },
-//          { planId: 2, planName: "Google Play 10$", available: 10 }
-//        ]
-//
-// 3️⃣ GET /stock/sold
-//    ➤ Purpose: Count sold cards for each plan.
-//
 // 4️⃣ GET /plans
 //    ➤ Purpose: Return all available plans.
 //

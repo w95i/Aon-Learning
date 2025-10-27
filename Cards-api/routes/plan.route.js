@@ -1,9 +1,26 @@
 const express = require("express");
 const router = express.Router();
-const { getPlans, getPlanById, purchase } = require("../controllers/planController");
+const {
+  getPlans,
+  getPlanAvailable,
+  getPlanById,
+  purchase,
+} = require("../controllers/planController");
 const clientAuth = require("../middleware/clientAuth");
 
 router.get("/", async (req, res) => {
+  try {
+    const results = await getPlanAvailable();
+    if (results.message) {
+      return res.status(404).send(results);
+    }
+    res.send(results);
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+});
+
+router.get("/all", async (req, res) => {
   try {
     const results = await getPlans();
     res.send(results);
@@ -32,7 +49,7 @@ router.post("/purchase", clientAuth, async (req, res) => {
     }
     res.send(results);
   } catch (error) {
-    console.log(error)
+    console.log(error);
     res.status(500).send({ message: "اكو مشكله بالدنيا..." });
   }
 });
