@@ -4,6 +4,7 @@ const {
   register,
   login,
   getClientBalance,
+  topUpClientBalance,
 } = require("../controllers/clientController");
 const clientAuth = require("../middleware/clientAuth");
 
@@ -46,6 +47,21 @@ router.get("/balance", clientAuth, async (req, res) => {
       return res.status(404).send({ message: "Client not found" });
     }
     res.send(balance);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({ message: error.message });
+  }
+});
+
+router.post("/topup", clientAuth, async (req, res) => {
+  try {
+    const clientId = req.user.id;
+    const { amount } = req.body;
+    const result = await topUpClientBalance(clientId, amount);
+    if (result.message) {
+      return res.status(400).send({ message: result.message });
+    }
+    res.send(result);
   } catch (error) {
     console.log(error);
     res.status(500).send({ message: error.message });

@@ -5,6 +5,7 @@ const {
   getPlanAvailable,
   getPlanById,
   purchase,
+  getPlanStock,
 } = require("../controllers/planController");
 const clientAuth = require("../middleware/clientAuth");
 
@@ -23,6 +24,19 @@ router.get("/", async (req, res) => {
 router.get("/all", async (req, res) => {
   try {
     const results = await getPlans();
+    res.send(results);
+  } catch (error) {
+    res.status(500).send({ message: "اكو مشكله بالدنيا..." });
+  }
+});
+
+router.get("/:id/stock", async (req, res) => {
+  try {
+    const planId = parseInt(req.params.id);
+    const results = await getPlanStock(planId);
+    if (results.message) {
+      return res.status(404).send(results.message);
+    }
     res.send(results);
   } catch (error) {
     res.status(500).send({ message: "اكو مشكله بالدنيا..." });

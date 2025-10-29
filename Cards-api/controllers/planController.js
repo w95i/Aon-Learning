@@ -19,8 +19,35 @@ const getPlanAvailable = async () => {
   return rows;
 };
 
+const getPlanStock = async (planId) => {
+  const plan = await getPlanById(planId);
+  if (!plan || plan.message === "Plan not found") {
+    return { message: "Plan not found" };
+  }
+
+  const { rows } = await db.query(`
+    SELECT 
+      s.plan_id AS "planId",
+      p.name AS "planName",
+      COUNT(*) FILTER (WHERE s.state = 'ready') AS "ready",
+      COUNT(*) FILTER (WHERE s.state = 'sold') AS "sold",
+      COUNT(*) FILTER (WHERE s.state = 'error') AS "error"
+    FROM stock s
+    JOIN plan p ON s.plan_id = p.id
+    WHERE s.plan_id = ${planId}
+    GROUP BY s.plan_id, p.name;
+`);
+  if (rows.length === 0) {
+    return { message: "No stock for this plan" };
+  }
+  return rows[0];
+};
+
 const getPlanById = async (planId) => {
   const { rows } = await db.query(`SELECT * FROM plan WHERE id = ${planId}`);
+  if (rows.length === 0) {
+    return { message: "Plan not found" };
+  }
   return rows[0];
 };
 
@@ -71,6 +98,7 @@ const purchase = async (planId, clientId) => {
 module.exports = {
   getPlans,
   getPlanAvailable,
+  getPlanStock,
   getPlanById,
   purchase,
 };

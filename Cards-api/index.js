@@ -26,19 +26,6 @@ process.on("SIGINT", async () => {
   process.exit(0);
 });
 
-// 4️⃣ GET /plans
-//    ➤ Purpose: Return all available plans.
-//
-// 5️⃣ GET /plans/:id/stock
-//    ➤ Purpose: Show stock summary for a single plan (ready/sold/error counts).
-//    ➤ Response Example:
-//        { planId, planName, ready, sold, error }
-//
-// 6️⃣ POST /client/:id/topup
-//    ➤ Purpose: Add funds to a client’s wallet.
-//    ➤ Body: { amount }
-//    ➤ Response: { id, oldBalance, newBalance }
-//
 // 7️⃣ GET /invoice/client/:id
 //    ➤ Purpose: Return recent invoices for one client (limit 50).
 //

@@ -61,8 +61,23 @@ const getClientBalance = async (clientId) => {
   return {  id: user[0].id, name: user[0].name, balance: user[0].balance  };
 };
 
+const topUpClientBalance = async (clientId, amount) => {
+  const { rows: user } = await db.query(`SELECT id, name, balance FROM client WHERE id = ${clientId}`);
+  if (user.length === 0) {
+    return { message: "Client not found" };
+  }
+
+  const oldBalance = parseFloat(user[0].balance);
+  const newBalance = oldBalance + parseFloat(amount);
+
+  await db.query(`UPDATE client SET balance = ${newBalance} WHERE id = ${clientId}`);
+
+  return { id: clientId, oldBalance, newBalance };
+};
+
 module.exports = {
   register,
   login,
   getClientBalance,
+  topUpClientBalance,
 };
