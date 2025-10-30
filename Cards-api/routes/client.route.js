@@ -1,6 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const { register, login } = require("../controllers/clientController");
+const {
+  register,
+  login,
+  getClientBalance,
+  topUpClientBalance,
+} = require("../controllers/clientController");
+const clientAuth = require("../middleware/clientAuth");
 
 router.post("/register", async (req, res) => {
   try {
@@ -24,8 +30,41 @@ router.post("/login", async (req, res) => {
     }
     res.send({ token: result.token });
   } catch (error) {
-    console.log(error)
+    console.log(error);
     res.status(500).send({ message: "اكو مشكله بالدنيا..." });
+  }
+});
+
+router.get("/balance", clientAuth, async (req, res) => {
+  try {
+    const clientId = req.user.id;
+    console.log("Client ID:", clientId);
+    const balance = await getClientBalance(clientId);
+    if (balance === "clientId is required") {
+      return res.status(400).send({ message: "clientId is required" });
+    }
+    if (balance === "Client not found") {
+      return res.status(404).send({ message: "Client not found" });
+    }
+    res.send(balance);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({ message: error.message });
+  }
+});
+
+router.post("/topup", clientAuth, async (req, res) => {
+  try {
+    const clientId = req.user.id;
+    const { amount } = req.body;
+    const result = await topUpClientBalance(clientId, amount);
+    if (result.message) {
+      return res.status(400).send({ message: result.message });
+    }
+    res.send(result);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({ message: error.message });
   }
 });
 
